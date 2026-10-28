@@ -73,7 +73,19 @@ init -1 python:
         """当前回合能点的节点 key 列表，按 NODES 里的顺序。"""
         return [k for k, v in NODES.items() if store.turn >= v["unlock"]]
 
+    def node_open(key):
+        """这个节点在本回合开放没有。key 拼错直接抛，不静默返回 False。
+
+        菜单条件写成 node_open("auditorium")：写错 key 会当场炸出来，
+        而不是像 `in unlocked_nodes()` 那样让整条菜单项悄悄消失。
+        """
+        if key not in NODES:
+            raise Exception("未知节点：%s（NODES 里没有这个 key）" % key)
+        return store.turn >= NODES[key]["unlock"]
+
     def node_label(key):
+        if key not in NODES:
+            raise Exception("未知节点：%s（NODES 里没有这个 key）" % key)
         return NODES[key]["label"]
 
     def clamp(value, low=0, high=100):
