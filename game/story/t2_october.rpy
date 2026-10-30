@@ -79,6 +79,5 @@ label t2_october:
     ## 月末结算
     scene bg dorm_402
     "〔T2 月末结算 · 学习 [study]，压力 [stress]，体力 [stamina]，钱 [money] · 台词待补〕"
-    "〔T2 结束 · T3「揭」待写〕"
-    # TODO: T3「揭」写好后把下面这行 return 换成跳到 T3 的 label（8 月回合表 §8 的命名）
-    return
+
+    jump t3_november
