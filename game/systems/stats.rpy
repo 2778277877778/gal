@@ -63,7 +63,6 @@ init -1 python:
         "canteen":      dict(label="食堂",     unlock=1),
         "shop":         dict(label="小卖部",   unlock=1),
         "field":        dict(label="操场",     unlock=1),
-        "art_building": dict(label="艺术楼",   unlock=2),   # 容器节点：T2 只走剧情，本身没有行动项（琴房 T3 才开）
         "piano_room":   dict(label="旧琴房",   unlock=3),
         "auditorium":   dict(label="礼堂",     unlock=5),
         "music_room":   dict(label="音乐教室", unlock=6),
