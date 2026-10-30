@@ -12,7 +12,7 @@
 ## 台词回来后只替换〔待补〕，不动结构。
 ################################################################################
 
-image bg piano_room_night = Solid("#14171c")
+## 背景图统一在 game/story/defs/images.rpy 定义，这里只用 scene bg xxx。
 
 default t3_exam_pass = False         # 期中是否过线 50
 

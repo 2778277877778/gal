@@ -31,3 +31,4 @@ image bg stairwell_night   = Solid("#15191e")
 ## 艺术楼 / 礼堂
 image bg art_backstage     = Solid("#1a1d22")
 image bg auditorium_night  = Solid("#12161b")
+image bg piano_room_night  = Solid("#14171c")
