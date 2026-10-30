@@ -15,6 +15,7 @@
 ## 背景图统一在 game/story/defs/images.rpy 定义，这里只用 scene bg xxx。
 
 default t3_exam_pass = False         # 期中是否过线 50
+default t3_comfort = ""              # 旧琴房怎么安慰她：talk / silent / key
 
 label t3_november:
 
@@ -33,22 +34,31 @@ label t3_november:
     else:
         "〔T3-2 期中 · 没过线 50（物理失手，年级第三）· 台词待补〕"
 
-    ## 固定 · 家长会
+    ## 固定 · 家长会（台词回填时分两版：听过楼梯间那通电话的，和没听过的）
     scene bg classroom_day
-    "〔T3-3 家长会 · 他喊「周医生好」，她父亲冷淡 · 台词待补〕"
+    if has_flag("heard_call"):
+        "〔T3-3 家长会 · 听过 T2 那通电话，台词待补〕"
+    else:
+        "〔T3-3 家长会 · 没听过那通电话，台词待补〕"
 
     ## 固定 · 旧琴房
     scene bg piano_room_night
     "〔T3-4 旧琴房 · 她按着一个按不下去的键 · 台词待补〕"
 
     menu:
-        "〔待补〕说「多喝热水」":
-            "〔T3-4 选项 A · 台词待补〕"
+        "〔待补〕说漂亮话":
+            $ t3_comfort = "talk"
+            "〔T3-4 选项 A · 说漂亮话 · 台词待补〕"
 
-        "〔待补〕蹲下去帮她看键":
-            "〔T3-4 选项 B · 台词待补〕"
+        "〔待补〕沉默陪着":
+            $ t3_comfort = "silent"
+            "〔T3-4 选项 B · 沉默陪着 · 台词待补〕"
 
-    # 撞见她弹琴 = 找到了琴房这条线，TRUE 必需
+        "〔待补〕蹲下去帮她按那个键":
+            $ t3_comfort = "key"
+            "〔T3-4 选项 C · 帮她按那个键 · 台词待补〕"
+
+    # 撞见她弹琴 = 找到了琴房这条线，TRUE 必需；三档都置
     $ set_flag("found_piano_room")
 
     ## 固定 · 她的秘密
