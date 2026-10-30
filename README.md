@@ -50,8 +50,14 @@ game/
   ui_zh.rpy         界面中文化
   ui_theme.rpy      样式微调
   testcases.rpy     冒烟用例
-  systems/stats.rpy 数值、AP、Flag 的唯一入口
-  story/            人物定义和剧本（目前只有 T1）
+  systems/stats.rpy 数值、AP、Flag、节点表的唯一入口
+  story/
+    t1_september.rpy  T1 全稿
+    t2_october.rpy    T2 骨架（台词待补）
+    free_actions.rpy  通用自由行动段
+    defs/
+      characters.rpy  人物定义
+      images.rpy      全部背景图定义
   fonts/ gui/ images/ audio/
 高中校园物语/         策划文档
 美术/                UI 规范、界面风格、预览图

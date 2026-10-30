@@ -6,13 +6,7 @@
 ## 背景全是纯色占位，美术给出 images/bg_*.png 后替换掉。
 ################################################################################
 
-image bg school_gate_rain = Solid("#1b2430")
-image bg dorm_402         = Solid("#221f1a")
-image bg classroom_morning = Solid("#1d232a")
-image bg playground_sun   = Solid("#2a2b24")
-image bg playground_heat  = Solid("#302a22")
-image bg classroom_day    = Solid("#1f252b")
-image bg corridor_night   = Solid("#14181d")
+## 背景图统一在 game/story/defs/images.rpy 定义，这里只用 scene bg xxx。
 
 ## 本幕的选项记忆（T2 起读这三行决定台词变体）
 default t1_answer = ""      # deny / ask / fumble

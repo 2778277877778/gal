@@ -63,14 +63,18 @@ init -1 python:
         "canteen":      dict(label="食堂",     unlock=1),
         "shop":         dict(label="小卖部",   unlock=1),
         "field":        dict(label="操场",     unlock=1),
-        "art_building": dict(label="艺术楼",   unlock=2),
+        "art_building": dict(label="艺术楼",   unlock=2),   # 容器节点：T2 只走剧情，本身没有行动项（琴房 T3 才开）
         "piano_room":   dict(label="旧琴房",   unlock=3),
         "auditorium":   dict(label="礼堂",     unlock=5),
         "music_room":   dict(label="音乐教室", unlock=6),
     }
 
     def unlocked_nodes():
-        """当前回合能点的节点 key 列表，按 NODES 里的顺序。"""
+        """当前回合能点的节点 key 列表，按 NODES 里的顺序。
+
+        这是给 campus_map 地图界面用的接口，目前地图还没做、暂时没有调用方；
+        现有的自由行动菜单是逐条 node_open("...") 判断的，别以为这份是死代码删掉。
+        """
         return [k for k, v in NODES.items() if store.turn >= v["unlock"]]
 
     def node_open(key):

@@ -29,6 +29,7 @@
 # 正式要留的截图放 美术/ 并人工确认过内容。
 /game/zz_*.rpy
 /game/_shots*.rpy
+/game/_probe*.rpy
 /game/screenshot*.rpy
 /tools/
 /dist/

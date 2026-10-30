@@ -11,9 +11,7 @@
 ## 台词回来后只替换方括号里的占位行和选项文字，不动结构。
 ################################################################################
 
-image bg art_backstage   = Solid("#1a1d22")
-image bg auditorium_night = Solid("#12161b")
-image bg stairwell_night = Solid("#15191e")
+## 背景图统一在 game/story/defs/images.rpy 定义，这里只用 scene bg xxx。
 
 default t2_monthly_pass = False      # 第一次月考是否过线（线 35）
 default t2_call = ""                 # stay / leave / water_only，楼梯间那三种处理
@@ -82,4 +80,5 @@ label t2_october:
     scene bg dorm_402
     "〔T2 月末结算 · 学习 [study]，压力 [stress]，体力 [stamina]，钱 [money] · 台词待补〕"
     "〔T2 结束 · T3「揭」待写〕"
+    # TODO: T3「揭」写好后把下面这行 return 换成跳到 T3 的 label（8 月回合表 §8 的命名）
     return
