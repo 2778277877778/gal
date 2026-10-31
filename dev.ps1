@@ -23,14 +23,14 @@ $ErrorActionPreference = 'Stop'
 $repo = $PSScriptRoot
 
 function Find-Sdk {
+    # 只认两类位置：显式设的 $env:RENPY_SDK，和仓库旁边两个固定目录。
+    # 不扫 C:\、D:\、%LOCALAPPDATA% 这类可写目录：谁往那儿放一个带 renpy.py 的文件夹，
+    # 就会连带执行里面的 python.exe。
     $candidates = @()
 
     if ($env:RENPY_SDK) { $candidates += $env:RENPY_SDK }
     $candidates += (Join-Path (Split-Path $repo -Parent) 'tools\renpy-8.5.3-sdk')
     $candidates += (Join-Path (Split-Path $repo -Parent) 'renpy-8.5.3-sdk')
-    $candidates += 'C:\renpy-8.5.3-sdk'
-    $candidates += 'D:\renpy-8.5.3-sdk'
-    $candidates += (Join-Path $env:LOCALAPPDATA 'renpy-8.5.3-sdk')
 
     foreach ($c in $candidates) {
         if (-not $c) { continue }

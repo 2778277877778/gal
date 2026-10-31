@@ -16,9 +16,13 @@ init -100 python in gui:
 ##   2. 临时打开下面这段，跑一次 lint
 ##   3. 关回去，再跑 tools/mkui.py 恢复手绘素材
 ##
+## 打开时注意第一行判断：`if config.developer and not renpy.mobile`。
+## config.developer 打包后自动为 False，所以就算忘了关回去，发布版也不会执行这段
+## （它会把 SDK 的 launcher/game 插进 sys.path 再 import gui7，只能在开发机上跑）。
+##
 # init 100 python in gui:
 #
-#     if not renpy.mobile:
+#     if config.developer and not renpy.mobile:
 #         from store import config
 #
 #         import sys
